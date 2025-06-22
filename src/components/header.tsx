@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -58,9 +58,12 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <SheetHeader className="sr-only">
+                <SheetTitle>Menu</SheetTitle>
+              </SheetHeader>
               <div className="flex flex-col h-full">
                   <div className="p-6">
-                    <Link href="/" className="flex items-center space-x-2">
+                    <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMobileMenuOpen(false)}>
                       <Zap className="h-6 w-6 text-primary" />
                       <span className="font-bold">IndiaMark Digital</span>
                     </Link>
@@ -72,7 +75,7 @@ export default function Header() {
                   </nav>
                   <div className="mt-auto p-6">
                       <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-                          <Link href="/contact">Get Quote</Link>
+                          <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>Get Quote</Link>
                       </Button>
                   </div>
               </div>
