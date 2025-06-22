@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { CheckCircle, LineChart, Megaphone, Search, Users } from 'lucide-react';
+import { CheckCircle, Code, LineChart, Megaphone, Search, Users } from 'lucide-react';
 
 const servicesData = [
   {
@@ -26,6 +26,12 @@ const servicesData = [
     title: "Analytics & Reporting",
     description: "Understand your performance and make data-driven decisions. We set up advanced tracking and provide clear, actionable reports that highlight key metrics and opportunities for growth.",
     features: ["Google Analytics & Tag Manager Setup", "Custom Dashboards", "Conversion Rate Optimization (CRO)", "ROI Tracking", "Competitor Analysis"],
+  },
+  {
+    icon: <Code className="w-12 h-12 text-primary" />,
+    title: "Website Development",
+    description: "We build beautiful, modern, and responsive websites that are optimized for performance and user experience. From simple landing pages to complex e-commerce platforms, we've got you covered.",
+    features: ["Custom Website Design", "Responsive Development", "E-commerce Solutions", "Content Management Systems (CMS)", "Website Maintenance"],
   },
 ];
 

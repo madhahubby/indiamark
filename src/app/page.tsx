@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { LineChart, Megaphone, Search, ThumbsUp } from 'lucide-react';
+import { Code, Megaphone, Search, ThumbsUp } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -23,9 +23,9 @@ export default function Home() {
       description: 'Connect with your customers and build a strong online community around your brand.',
     },
     {
-      icon: <LineChart className="w-12 h-12 text-primary" />,
-      title: 'Analytics & Reporting',
-      description: 'Make data-driven decisions with our comprehensive analytics and reporting services.',
+      icon: <Code className="w-12 h-12 text-primary" />,
+      title: 'Website Development',
+      description: 'Get a stunning, high-performance website that looks great on all devices.',
     },
   ];
 
