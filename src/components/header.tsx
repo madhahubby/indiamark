@@ -35,7 +35,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center">
-        <div className="mr-4 flex items-center">
+        <div className="flex flex-1 items-center justify-start">
           <Link href="/" className="flex items-center space-x-2">
             <Zap className="h-6 w-6 text-primary" />
             <span className="font-bold font-headline">IndiaMark Digital</span>
@@ -48,7 +48,7 @@ export default function Header() {
         </nav>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <Button asChild className="hidden md:flex bg-accent text-accent-foreground hover:bg-accent/90">
-            <Link href="/contact">Contact Us</Link>
+            <Link href="/contact">Get Quote</Link>
           </Button>
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
@@ -72,7 +72,7 @@ export default function Header() {
                   </nav>
                   <div className="mt-auto p-6">
                       <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-                          <Link href="/contact">Contact Us</Link>
+                          <Link href="/contact">Get Quote</Link>
                       </Button>
                   </div>
               </div>
