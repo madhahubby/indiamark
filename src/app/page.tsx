@@ -65,8 +65,8 @@ export default function Home() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative text-center py-24 md:py-32 lg:py-48 bg-gradient-to-br from-background to-tertiary/20">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl font-extrabold font-headline tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+        <div className="container mx-auto px-5">
+          <h1 className="text-4xl md:text-5xl font-extrabold font-headline tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
             Elevate Your Brand with IndiaMark Digital
           </h1>
           <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">

@@ -3,6 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
+import emailjs from '@emailjs/browser';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -47,18 +48,44 @@ export function ContactForm() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // In a real application, you would handle the form submission here,
-    // e.g., send an email or save to a database.
-    console.log(values);
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-    // Simulate an API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    if (!serviceId || !templateId || !publicKey) {
+      console.error('EmailJS environment variables are not set.');
+      toast({
+        title: 'Configuration Error',
+        description:
+          'The email service is not configured correctly. Please contact the administrator.',
+        variant: 'destructive',
+      });
+      return;
+    }
 
-    toast({
-      title: 'Message Sent!',
-      description: 'Thank you for reaching out. We will get back to you shortly.',
-    });
-    form.reset();
+    const templateParams = {
+      from_name: values.name,
+      from_email: values.email,
+      to_name: 'IndiaMark Digital',
+      subject: values.subject,
+      message: values.message,
+    };
+
+    try {
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      toast({
+        title: 'Message Sent!',
+        description: 'Thank you for reaching out. We will get back to you shortly.',
+      });
+      form.reset();
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      toast({
+        title: 'Failed to Send Message',
+        description: 'There was an error sending your message. Please try again later.',
+        variant: 'destructive',
+      });
+    }
   }
 
   return (
